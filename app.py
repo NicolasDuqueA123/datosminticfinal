@@ -32,7 +32,7 @@ with center_col:
     </div>
     """, unsafe_allow_html=True)
 
-    imagen5 = Image.open("Media\col.jpg")
+    imagen5 = Image.open("Media/col.jpg")
     st.image(imagen5, use_container_width=False, width=900,
              caption="León Bello - Edwin Duqeu - Nicólas Duque - Dayan Gaviria"
              )

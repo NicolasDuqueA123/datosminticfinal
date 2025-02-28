@@ -18,18 +18,18 @@ def generarMenu():
             ##imagen2 = Image.open("Media\ladron.jpeg")
             ##st.image(imagen2, use_container_width=False, width=800)
         ''' with col3:
-            imagen3 = Image.open("Media\dimayor.jpg")
+            imagen3 = Image.open("Media/dimayor.jpg")
             st.image(imagen3)
         with col4:
-            imagen4 = Image.open("Media\dimayor.jpg")
+            imagen4 = Image.open("Media/dimayor.jpg")
             st.image(imagen4)'''
         st.page_link('app.py', label='Home', icon='🏠')
-        st.page_link('Pages\metodologia.py', label='Methodology', icon='🌐')
-        st.page_link('Pages\informe.py', label='Report', icon='📊')
+        st.page_link('Pages/metodologia.py', label='Methodology', icon='🌐')
+        st.page_link('Pages/informe.py', label='Report', icon='📊')
         
 
 def visualizardata(df,titulo):
-    imagen4 = Image.open("Media\correlation.jpg")
+    imagen4 = Image.open("Media/correlation.jpg")
     ##st.image(imagen4)
     data_col = df[df['country'] == 'Colombia']
     # selecciono solo la columna de year y las de share_elec
