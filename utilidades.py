@@ -26,6 +26,8 @@ def generarMenu():
         st.page_link('app.py', label='Home', icon='🏠')
         st.page_link('pages/metodologia.py', label='Methodology', icon='🌐')
         st.page_link('pages/informe.py', label='Report', icon='📊')
+        st.page_link('pages/adicionales.py', label='Report', icon='📊')
+        st.page_link('pages/otros.py', label='Report', icon='📊')
         
 
 def visualizardata(df,titulo):
