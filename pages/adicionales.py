@@ -9,11 +9,10 @@ import numpy as np
 import matplotlib.ticker as ticker
 import streamlit as st
 
+util.generarMenu()
 # Cargamos el dataset Modificado
 data_energy = pd.read_csv("data/data_energy_2.csv", index_col=None)
 
-# %% [markdown]
-# Generamos varios dataset para segmentar su posterior análisis
 
 # %%
 #Generamos un datafreme sin la demanda energetica
@@ -40,7 +39,7 @@ data_des = data_energy[data_energy['iso_code'].isin(["NOR", "DEU", "ESP", "NLD",
 
 # %%
 # mostramos las columnas que tiene el dataframe:
-data_col.columns
+#data_col.columns
 
 # %% [markdown]
 # Fuentes de energia en porcentaje por año
@@ -49,36 +48,6 @@ data_col.columns
 # selecciono solo la columna de year y las de share_elec
 data_col1 = data_col.filter(regex="year|share", axis=1)
 data_col1 = data_col1[data_col1["year"] >= 2000]
-data_col1.columns
-
-# %%
-# Configuración de estilo oscuro
-plt.style.use('dark_background')
-sns.set_palette("bright")  # Colores vibrantes
-
-# Crear la figura y el eje
-fig, ax = plt.subplots(figsize=(12, 6))
-
-# Dibujar cada línea
-for col in data_col1.columns[1:]:  # Excluir el año
-    ax.plot(data_col1['year'], data_col1[col], label=col.replace("_share_elec", "").capitalize(), linewidth=2)
-
-# Personalización del gráfico
-ax.set_facecolor("#030764")  # Fondo de la grafica
-ax.grid(color='gray', linestyle='dashdot', linewidth=0.4)  # Rejilla sutil
-ax.set_title("Evolución del Mix Energético en Colombia", fontsize=14, fontweight='bold', color='white')
-ax.set_xlabel("Año", fontsize=12, color='white')
-ax.set_ylabel("Porcentaje de Energía", fontsize=12, color='white')
-ax.legend(loc="center left", bbox_to_anchor=(1.01, 0.5), fontsize=12, frameon=True)
-ax.tick_params(axis='both', colors='white')  # Color de los números en ejes
-ax.set_xticks(np.arange(data_col1['year'].min(), data_col1['year'].max() + 1, 1))  # Configurar la grilla para que aparezca cada año
-ax.set_xticklabels([str(year) if year % 5 == 0 else "" for year in data_col1['year']], rotation=0)  # Configurar etiquetas
-ax.set_yticks(np.arange(0, 100, 10))  # Configurar la grilla para que aparezca
-ax.set_yticklabels([str(y) if y % 20 == 0 else "" for y in (np.arange(0, 100, 10))], rotation=0)  # Configurar etiquetas
-
-
-# Mostrar gráfico
-st.pyplot(plt)
 
 
 # %% [markdown]
@@ -160,9 +129,9 @@ st.pyplot(plt)
 
 # %%
 # mostramos las columnas que tiene el dataframe:
-data_col.columns
+#data_col.columns
 
-# %%
+# COMIENZA MODELO PREDICTIVO
 data_hidroCol = data_col[['year', 'population', 'hydro_electricity']]
 
 # %%

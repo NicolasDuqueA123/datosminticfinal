@@ -31,7 +31,7 @@ def generarMenu():
 
 def visualizardata(df,titulo):
     imagen4 = Image.open("media/correlation.jpg")
-    ##st.image(imagen4)
+    st.image(imagen4)
     data_col = df[df['country'] == 'Colombia']
     # selecciono solo la columna de year y las de share_elec
     data_col1 = data_col.filter(regex="year|share", axis=1)
