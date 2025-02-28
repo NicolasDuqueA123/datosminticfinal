@@ -31,7 +31,9 @@ def generarMenu():
 
 def visualizardata(df,titulo):
     imagen4 = Image.open("media/correlation.jpg")
-    st.image(imagen4)
+    st.markdown("<h2 style='text-align: center;'>Es visible una alta correlación entre la fuente de energía generada por gas y por combustibles</h2>", unsafe_allow_html=True)
+    st.image(imagen4, use_container_width=False, width=900,
+             caption="Gráfica de correlaciones para fuentes de energía")
     data_col = df[df['country'] == 'Colombia']
     # selecciono solo la columna de year y las de share_elec
     data_col1 = data_col.filter(regex="year|share", axis=1)
