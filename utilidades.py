@@ -30,10 +30,24 @@ def generarMenu():
         
 
 def visualizardata(df,titulo):
-    imagen4 = Image.open("media/correlation.jpg")
-    st.markdown("<h5 style='text-align: center;'>1. Gráfica de correlaciones</h5>", unsafe_allow_html=True)
-    st.markdown("<h7 style='text-align: center;'>Es visible una alta correlación entre la fuente de energía generada por gas y por combustibles</h7>", unsafe_allow_html=True)
-    st.image(imagen4, use_container_width=False, width=650, caption=" ")
+    #imagen4 = Image.open("media/correlation.jpg")
+    #st.markdown("<h5 style='text-align: center;'>1. Gráfica de correlaciones</h5>", unsafe_allow_html=True)
+    #st.markdown("<h7 style='text-align: center;'>Es visible una alta correlación entre la fuente de energía generada por gas y por combustibles</h7>", unsafe_allow_html=True)
+    #st.image(imagen4, use_container_width=False, width=650, caption=" ")
+
+    #Matriz de correlaciones
+    data_col = df[df['country'] == 'Colombia']
+    corr_matrix = data_col
+    corr_matrix = corr_matrix.drop(columns=['country', 'iso_code', 'nuclear_electricity', 'nuclear_share_elec', 'year','population', 'gdp'])
+    corr_matrix = corr_matrix.loc[:, ~corr_matrix.columns.str.contains('share_elec')]
+    corr_matrix = corr_matrix.corr()
+
+    #Gráfico de la matriz de correlaciones
+    plt.figure(figsize=(7,5))
+    sns.heatmap(corr_matrix, annot = True, vmin = -1, vmax = 1, cmap = "YlGnBu").set_title('Correlation Matrix')
+    st.pyplot(plt)
+
+
 
     data_col = df[df['country'] == 'Colombia']
     # selecciono solo la columna de year y las de share_elec
