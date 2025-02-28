@@ -138,9 +138,9 @@ st.markdown("<h7 style='text-align: center;'>Se visualiza cuales son los paises 
 mundo = Image.open("media/mapamundi.jpeg")
 st.image(mundo, use_container_width=False, width=700, caption=" ")
 
-st.markdown("<h7 style='text-align: center;'>El desarrollo de estás gráficas es visible en:</h7>", unsafe_allow_html=True)
-st.markdown('<a href="https://www.google.com" target="_blank">Ir a Google</a>', unsafe_allow_html=True)
-
+st.markdown("<h7 style='text-align: center;'>El desarrollo de estás gráficas es visible en los siguientes links:</h7>", unsafe_allow_html=True)
+st.markdown('<a href="https://www.google.com" target="_blank">Ir a gráficas LATAM</a>', unsafe_allow_html=True)
+st.markdown('<a href="https://www.google.com" target="_blank">Ir a gráfica mundial</a>', unsafe_allow_html=True)
 
 # COMIENZA MODELO PREDICTIVO
 data_hidroCol = data_col[['year', 'population', 'hydro_electricity']]
