@@ -25,14 +25,16 @@ with center_col:
     import streamlit as st
 
     st.markdown("<h1 style='text-align: center;'>Informe sobre la Transición Energética</h1>", unsafe_allow_html=True)
-    st.markdown("<h2 style='text-align: left;'>Objetivo General: </h2>", unsafe_allow_html=True)
-    st.markdown("""
-    <div style="text-align: justify;">
-        Identificar el comportamiento de la generación eléctrica de siete diferentes fuentes de energía en Colombia para el periodo 2006-2023.
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown("<h5 style='text-align: left;'>Objetivo General: </h5>", unsafe_allow_html=True)
+    st.markdown("<h7 style='text-align: justify;'>Identificar el comportamiento de la generación eléctrica de siete diferentes fuentes de energía en Colombia para el periodo 2006-2023.'</h7>", unsafe_allow_html=True)
+    st.markdown("<h5 style='text-align: left;'>Objetivos especificos: </h5>", unsafe_allow_html=True)
+    st.markdown("<h7 style='text-align: justify;'> - Visualizar los indicadores descriptivos de las fuentes de energía definidas para el estudio en Colombia en el periodo de investigación.'</h7>", unsafe_allow_html=True)
+    st.markdown("<h7 style='text-align: justify;'> - Identificar el grado de correlación de las fuentes de energía definidas para el estudio en Colombia en el periodo de investigación'</h7>", unsafe_allow_html=True)
+    st.markdown("<h7 style='text-align: justify;'> - Comparar la evolución de los porcentajes de generación eléctrica de lostipos de energía definidas para el estudio en Colombia en el periodo de investigación'</h7>", unsafe_allow_html=True)
+    st.markdown("<h7 style='text-align: justify;'> - Comparar la evolución de la generación eléctrica de los tipos de energía definidas para el estudio en Colombia en el periodo de investigación.'</h7>", unsafe_allow_html=True)
 
-    imagen5 = Image.open("media/col.jpg")
+
+    imagen5 = Image.open("equipo.jpeg")
     st.image(imagen5, use_container_width=False, width=900,
              caption="León Bello - Edwin Duqeu - Nicólas Duque - Dayan Gaviria"
              )
