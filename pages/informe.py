@@ -15,7 +15,7 @@ st.set_page_config(
 util.generarMenu()
 
 #Visualización 
-st.markdown("<h1 style='text-align: center;'>Gráficas Informe transición sobre datos</h1>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center;'>Gráficas Informe transición sobre datos</h2>", unsafe_allow_html=True)
 ruta = 'data/data_energy_3.3.1.csv'
 df = pd.read_csv(ruta)
 

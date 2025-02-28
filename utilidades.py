@@ -31,7 +31,7 @@ def generarMenu():
 
 def visualizardata(df,titulo):
     imagen4 = Image.open("media/correlation.jpg")
-    st.markdown("<h2 style='text-align: center;'>Es visible una alta correlación entre la fuente de energía generada por gas y por combustibles</h2>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: justify;'>Es visible una alta correlación entre la fuente de energía generada por gas y por combustibles</h3>", unsafe_allow_html=True)
     st.image(imagen4, use_container_width=False, width=900,
              caption="Gráfica de correlaciones para fuentes de energía")
     data_col = df[df['country'] == 'Colombia']
