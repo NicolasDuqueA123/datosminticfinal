@@ -43,7 +43,7 @@ def visualizardata(df,titulo):
     corr_matrix = corr_matrix.corr()
 
     #Gráfico de la matriz de correlaciones
-    plt.figure(figsize=(7,5))
+    plt.figure(figsize=(5,5))
     sns.heatmap(corr_matrix, annot = True, vmin = -1, vmax = 1, cmap = "YlGnBu").set_title('Correlation Matrix')
     st.pyplot(plt)
 
