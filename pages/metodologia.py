@@ -34,7 +34,7 @@ Metodología Procesamiento de Datos:
 Dados los objetivos del estudio, donde se requirió una búsqueda de bases de datos de fuentes secundarias y descubrir relaciones entre las variables objeto de estudio, se usó el modelo KDD (Knowledge Discovery in Database).
 
     """)
-    imagen2 = Image.open("Media/kdd.jpg")
+    imagen2 = Image.open("media/kdd.jpg")
     st.image(imagen2, use_container_width=True,width=500,
             caption="Figura 1:      Pasos a desarrollar en el procesamiento de datos modelo KDD")
 
