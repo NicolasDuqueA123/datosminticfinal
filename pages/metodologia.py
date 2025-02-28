@@ -39,69 +39,29 @@ Dados los objetivos del estudio, donde se requirió una búsqueda de bases de da
             caption="Figura 1:      Pasos a desarrollar en el procesamiento de datos modelo KDD")
 
     st.write("""
-    Es importante mencionar que cada estudio debe adaptarse a sus necesidades, en este caso, se realizaron las siguientes acciones:""")
-
-
-    st.write("""
     Fase 1: Recolección de Datos.""")
 
-
-
+    st.write("""
+    Fase 2: Limpieza de los datos. Usando Pandas, Numpy y el software JASP""")
 
     st.write("""
-    Fase 2: Limpieza de los datos.""")
+    Fase 3: Transformación de datos. Usando la prueba de Shapiro Willks en JASP, encontrando normalidad y justificando el motivo de las variables con poca normalidad""")
 
     st.write("""
-    Utilizando la librería Pandas, se eliminaron las variables que contenían valores perdidos, de igual manera, considerando los objetivos del estudio, se eliminaron las variables que no son útiles para el estudio y las que estaban duplicadas por su forma de cálculo original, en la sección *********, se presentan los scripts correspondientes a la limpieza de datos.
-    Se realizó un análisis exploratorio de datos, con el fin de detectar errores de digitación, valores atípicos y/o extremos según la regla de Yates que se plasma en el gráfico de bigotes, además, de analizar las estadísticas descriptivas de resumen, contando el coeficiente de variación para mejor entendimiento de la variabilidad relativa de cada una de las variables continuas. Para las variables categóricas (país, …) se encontraron las frecuencias simples, sólo para identificar posibles comparaciones por país.
-    """)
+    Fase 4: Técnicas estadísticas.""")
 
     st.write("""
-    Fase 3: Transformación de datos.""")
+    Correlaciones de Pearson""")
 
     st.write("""
-    Es fundamental en cualquier técnica estadística validar los supuestos que se deben cumplir para satisfacer los objetivos de la investigación, cuando se trata de variables cuantitativas es útil conocer la forma de la distribución de ellas, donde se prueba la normalidad (datos acampanados) es imperativa, para ello, se utilizó la prueba de Shapiro Willks y …, 
-    Para validar la normalidad de los datos en Python, se pueden utilizar varias librerías y métodos estadísticos. Aquí están algunas de las más comunes:
-    """)
+    Gráfico de pie para evolución de generación eléctrica total""")
 
     st.write("""
-    Librerías y Métodos para Validar Normalidad.""")
-
-
-    st.write("""
-    1.	SciPy
-    La librería SciPy es muy utilizada para realizar pruebas estadísticas, incluyendo la prueba de Shapiro-Wilk y la prueba de Kolmogorov-Smirnov, que son dos de las más comunes para verificar la normalidad.
-    •	Prueba de Shapiro-Wilk: Ideal para muestras pequeñas y también aplicable a muestras más grandes. Se puede implementar de la siguiente manera:
-            """)
-
+    Gráfico de lineas para evlución generación fuentes de energía""")
 
     st.write("""
-    Fase 4: Minería de datos y/o técnicas estadísticas.""")
+    Barras apiladas porcentajes de Generación en TWH en periodo estudiado""")
 
     st.write("""
-    Considerando que los objetivos son claros y se tienen técnicas estadísticas definidas para ello, no fue necesario utilizar alguna técnica de minería de datos, se utilizaron las siguientes técnicas estadísticas supervisadas:""")
+    Fase 5: Análisis e interpretación de resultados. Mostrado en informe""")
 
-
-    st.write("""
-    Fase 4: Minería de datos y/o técnicas estadísticas.""")
-
-    st.write("""
-    Gráfico de pastel:""")
-
-    st.write("""
-    Series de tiempo (gráfico de líneas):""")
-
-    st.write("""
-    Correlaciones (gráficos de dispersión);""")
-
-
-    st.write("""
-    Regresión lineal múltiple:""")
-
-
-    st.write("""
-    Fase 5: Creación de conocimiento (Análisis e interpretación de resultados):""")
-
-
-    st.write("""
-    Series de tiempo (gráfico de líneas):.""")
