@@ -24,8 +24,6 @@ st.markdown("<h2 style='text-align: center;'>Gráficas adicionales</h2>", unsafe
 # Cargamos el dataset Modificado
 data_energy = pd.read_csv("data/data_energy_2.csv", index_col=None)
 
-
-# %%
 #Generamos un datafreme sin la demanda energetica
 data_tip = data_energy.drop(columns=['electricity_demand', 'electricity_generation',
                                             'net_elec_imports', 'greenhouse_gas_emissions'])
@@ -37,18 +35,11 @@ data_col = data_energy[data_energy['country'] == 'Colombia']
 data_lat = data_energy[data_energy['iso_code'].isin(["COL", "BRA", "CHL", "MEX",
                                                             "ARG", "PER", "ECU"])]
 
-# Paises Desarrollados
-data_des = data_energy[data_energy['iso_code'].isin(["NOR", "DEU", "ESP", "NLD", "FRA", "USA", "CHN",
-                                                            "IND", "CAN", "JPN", "AUS"])]
-
-
-# %%
 # selecciono solo la columna de year y las de share_elec
 data_col1 = data_col.filter(regex="year|share", axis=1)
 data_col1 = data_col1[data_col1["year"] >= 2000]
 
 
-# %% [markdown]
 # Relacion entre el fenomeno ENSO y la prodducción de energia por hidroelectricas en colombia
 
 # %%
@@ -79,14 +70,8 @@ enso_df = pd.DataFrame({'year': years, 'ENSO': enso_series})
 # Verificar que las columnas tengan el mismo número de datos
 assert len(enso_df['year']) == len(enso_df['ENSO']), "Error: Desajuste en la longitud de las columnas."
 
-# Mostrar el DataFrame
-print(enso_df.head())
-
-
-# %%
 data_hidrCol = data_col.filter(regex="year|hydro_share_elec", axis=1)
 
-# %%
 # Configuración de estilo oscuro
 plt.style.use('dark_background')
 sns.set_palette("bright")  # Colores vibrantes
@@ -118,20 +103,68 @@ ax2.grid(color='black', linestyle='dotted', linewidth=0.2)  # Puedes aumentar el
 # Agregar leyenda para ENSO
 ax2.legend(loc="upper left", bbox_to_anchor=(0.01, 0.95), fontsize=12, frameon=False)
 
-
-
 # Mostrar gráfico
 st.markdown("<h5 style='text-align: center;'>1. Gráfica ENSO hidroeléctrica</h5>", unsafe_allow_html=True)
 st.markdown("<h7 style='text-align: center;'>Es visible como en periodos donde hay menor cantidad de lluvias la generación hidroeléctrica disminuye y viceversa.</h7>", unsafe_allow_html=True)
 # Gráfico ENSO
 st.pyplot(plt)
 
+#INICIA GRÁFICA
 # Gráfica de barras apiladas latam
-st.markdown("<h5 style='text-align: center;'>2. Gráfica de barras apiladas LATAM</h5>", unsafe_allow_html=True)
-st.markdown("<h7 style='text-align: center;'>Se visualiza la distribución estádistica de paises latam y su comparación con Colombia.</h7>", unsafe_allow_html=True)
-genlatam = Image.open("media/genlatam.jpeg")
-st.image(genlatam, use_container_width=False, width=700, caption=" ")
+#st.markdown("<h5 style='text-align: center;'>2. Gráfica de barras apiladas LATAM</h5>", unsafe_allow_html=True)
+#st.markdown("<h7 style='text-align: center;'>Se visualiza la distribución estádistica de paises latam y su comparación con Colombia.</h7>", unsafe_allow_html=True)
+#genlatam = Image.open("media/genlatam.jpeg")
+#st.image(genlatam, use_container_width=False, width=700, caption=" ")
+Latam_2023 = data_lat[data_lat['year'] == 2023]
+# Filtrar las columnas relevantes
+Latam_2023_share = Latam_2023.filter(regex="country|_share_elec", axis=1)
 
+# Modificar el valor de biofuel en Chile
+Latam_2023_share.loc[Latam_2023_share['country'] == 'Chile', 'biofuel_share_elec'] = 0.0
+
+# Definir colores personalizados para cada fuente de energía
+colores = ["#003f5c", "#2f4b7c", "#665191", "#a05195", "#d45087", "#f95d6a", "#ff7c43", "#ffa600"]
+
+
+# Crear la figura
+fig, ax4 = plt.subplots(figsize=(10, 6))
+
+# Inicializar la acumulación de valores en 0    
+apil = 0
+
+# Crear las barras apiladas con colores personalizados
+for i, col in enumerate(Latam_2023_share.columns[1:]):  # Excluir el país
+    bars = ax4.bar(Latam_2023_share['country'], Latam_2023_share[col],
+                   bottom=apil, label=col.replace("_share_elec", "").capitalize(),
+                   linewidth=2, color=colores[i % len(colores)])  # Asignar color
+
+    # Agregar etiquetas con valores
+    for bar, value in zip(bars, Latam_2023_share[col]):
+        if value > 5:
+            ax4.text(bar.get_x() + bar.get_width() / 2,
+                     bar.get_y() + bar.get_height() / 2,
+                     f"{value:.1f}%",
+                     ha='center', va='center', fontsize=10, color='white', fontweight='bold')
+
+    # Acumular valores para la siguiente iteración
+    apil += Latam_2023_share[col]
+
+# Etiquetas y formato
+ax4.set_ylabel("Porcentaje de Generación Eléctrica")
+ax4.set_title("Generación de Energía por Fuente en Países de LATAM (2023)")
+plt.xticks(rotation=45)
+
+# Mover la leyenda fuera de la gráfica
+ax4.legend(title="Fuente de Energía", bbox_to_anchor=(1.05, 1), loc='upper left')
+
+# Ajustar diseño para evitar recortes
+plt.tight_layout()
+
+# Mostrar la gráfica
+st.pyplot(plt)
+
+
+# INICIA GRÁFICA
 # Mapamundi
 st.markdown("<h5 style='text-align: center;'>2. Mapamundi de generación renovable</h5>", unsafe_allow_html=True)
 st.markdown("<h7 style='text-align: center;'>Se visualiza cuales son los paises que generan más energia de fuentes renovables a medida que el tono del color se oscurece</h7>", unsafe_allow_html=True)
