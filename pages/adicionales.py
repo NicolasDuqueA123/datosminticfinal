@@ -130,13 +130,16 @@ st.pyplot(plt)
 st.markdown("<h5 style='text-align: center;'>2. Gráfica de barras apiladas LATAM</h5>", unsafe_allow_html=True)
 st.markdown("<h7 style='text-align: center;'>Se visualiza la distribución estádistica de paises latam y su comparación con Colombia.</h7>", unsafe_allow_html=True)
 genlatam = Image.open("media/genlatam.jpeg")
-st.image(genlatam, use_container_width=False, width=650, caption=" ")
+st.image(genlatam, use_container_width=False, width=700, caption=" ")
 
 # Mapamundi
 st.markdown("<h5 style='text-align: center;'>2. Mapamundi de generación renovable</h5>", unsafe_allow_html=True)
 st.markdown("<h7 style='text-align: center;'>Se visualiza cuales son los paises que generan más energia de fuentes renovables a medida que el tono del color se oscurece</h7>", unsafe_allow_html=True)
 mundo = Image.open("media/mapamundi.jpeg")
-st.image(genlatam, use_container_width=False, width=650, caption=" ")
+st.image(mundo, use_container_width=False, width=700, caption=" ")
+
+st.markdown("<h7 style='text-align: center;'>El desarrollo de estás gráficas es visible en:</h7>", unsafe_allow_html=True)
+st.markdown('<a href="https://www.google.com" target="_blank">Ir a Google</a>', unsafe_allow_html=True)
 
 
 # COMIENZA MODELO PREDICTIVO
