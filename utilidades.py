@@ -33,7 +33,7 @@ def visualizardata(df,titulo):
     imagen4 = Image.open("media/correlation.jpg")
     st.markdown("<h5 style='text-align: center;'>1. Gráfica de correlaciones</h5>", unsafe_allow_html=True)
     st.markdown("<h7 style='text-align: center;'>Es visible una alta correlación entre la fuente de energía generada por gas y por combustibles</h7>", unsafe_allow_html=True)
-    st.image(imagen4, use_container_width=True, width=500)
+    st.image(imagen4, use_container_width=True, width=500, caption="prueba")
 
     data_col = df[df['country'] == 'Colombia']
     # selecciono solo la columna de year y las de share_elec
