@@ -31,9 +31,9 @@ def generarMenu():
 
 def visualizardata(df,titulo):
     imagen4 = Image.open("media/correlation.jpg")
+    st.markdown("<h5 style='text-align: center;'>1. Gráfica de correlaciones</h5>", unsafe_allow_html=True)
     st.markdown("<h7 style='text-align: center;'>Es visible una alta correlación entre la fuente de energía generada por gas y por combustibles</h7>", unsafe_allow_html=True)
-    st.image(imagen4, use_container_width=True, width=900,
-             caption="Gráfica de correlaciones para fuentes de energía")
+    st.image(imagen4, use_container_width=True, width=500)
 
     data_col = df[df['country'] == 'Colombia']
     # selecciono solo la columna de year y las de share_elec
@@ -112,6 +112,9 @@ def visualizardata(df,titulo):
         plt.style.use('dark_background')
         sns.set_palette("muted")
 
+        #Grafica del pie
+        st.markdown("<h5 style='text-align: center;'>2. Gráfica tipo pie de porcentajes de generación anual</h5>", unsafe_allow_html=True)
+        st.markdown("<h7 style='text-align: center;'>Se visualiza un incremento porcentual cada año que esta en linea con lo esperado</h7>", unsafe_allow_html=True)
         st.pyplot(plt)
 
         total_per_year2 = df_grouped.sum(axis=0)
@@ -143,7 +146,10 @@ def visualizardata(df,titulo):
         ax.set_xticklabels([str(year) if year % 1 == 0 else "" for year in data_col2['year']], rotation=0)  # Configurar etiquetas
         ax.set_yticks(np.arange(0, 100, 10))  # Configurar la grilla para que aparezca
         ax.set_yticklabels([str(y) if y % 20 == 0 else "" for y in (np.arange(0, 100, 10))], rotation=0)  # Configurar etiquetas
-         # Mostrar gráfico
+
+         # Mostrar gráfico de mix energético
+        st.markdown("<h5 style='text-align: center;'>3. Gráfica de lineas generación fuentes de energía</h5>", unsafe_allow_html=True)
+        st.markdown("<h7 style='text-align: center;'>Se visualiza un incremento general de las fuentes de energía a lo largo del tiempo</h7>", unsafe_allow_html=True)
         st.pyplot(plt)
 
         ##st.write(data_col1)
@@ -178,7 +184,9 @@ def visualizardata(df,titulo):
         # Ajustar diseño para evitar recortes
         plt.tight_layout()
 
-        # Mostrar la gráfica
+        # Mostrar la gráfica de gráficos apilados
+        st.markdown("<h5 style='text-align: center;'>4. Gráfica porcentual de barras apiladas por fuente de energía</h5>", unsafe_allow_html=True)
+        st.markdown("<h7 style='text-align: center;'>Se visualiza la distribución de cada fuente de energía en el periodo estudiado</h7>", unsafe_allow_html=True)
         st.pyplot(plt)
 
                 
