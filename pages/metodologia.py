@@ -35,7 +35,7 @@ Dados los objetivos del estudio, donde se requirió una búsqueda de bases de da
 
     """)
     imagen2 = Image.open("media/kdd.jpg")
-    st.image(imagen2, use_container_width=True,width=500,
+    st.image(imagen2, use_container_width=True,width=450,
             caption="Figura 1:      Pasos a desarrollar en el procesamiento de datos modelo KDD")
 
     st.write("""
