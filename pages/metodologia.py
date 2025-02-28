@@ -42,26 +42,26 @@ Dados los objetivos del estudio, donde se requirió una búsqueda de bases de da
     Fase 1: Recolección de Datos.""")
 
     st.write("""
-    Fase 2: Limpieza de los datos. Usando Pandas, Numpy y el software JASP""")
+    Fase 2: Limpieza de los datos. Usando Pandas, Numpy y el software JASP.""")
 
     st.write("""
-    Fase 3: Transformación de datos. Usando la prueba de Shapiro Willks en JASP, encontrando normalidad y justificando el motivo de las variables con poca normalidad""")
+    Fase 3: Transformación de datos. Usando la prueba de Shapiro Willks en JASP, encontrando normalidad y justificando el motivo de las variables con poca normalidad.""")
 
     st.write("""
     Fase 4: Técnicas estadísticas.""")
 
     st.write("""
-    Correlaciones de Pearson""")
+    Correlaciones de Pearson.""")
 
     st.write("""
-    Gráfico de pie para evolución de generación eléctrica total""")
+    Gráfico de pie para evolución de generación eléctrica total.""")
 
     st.write("""
-    Gráfico de lineas para evlución generación fuentes de energía""")
+    Gráfico de lineas para evlución generación fuentes de energía.""")
 
     st.write("""
-    Barras apiladas porcentajes de Generación en TWH en periodo estudiado""")
+    Barras apiladas porcentajes de Generación en TWH en periodo estudiado.""")
 
     st.write("""
-    Fase 5: Análisis e interpretación de resultados. Mostrado en informe""")
+    Fase 5: Análisis e interpretación de resultados. Mostrado en informe.""")
 

@@ -1,7 +1,6 @@
 
 # # Análisis del dataframe
 
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -9,8 +8,19 @@ import numpy as np
 import matplotlib.ticker as ticker
 import streamlit as st
 import utilidades as util
+from PIL import Image
+
+st.set_page_config(
+    page_title='Others',
+    page_icon='✈️',
+    initial_sidebar_state='expanded',
+    layout='centered'
+)
 
 util.generarMenu()
+
+st.markdown("<h2 style='text-align: center;'>Gráficas adicionales</h2>", unsafe_allow_html=True)
+
 # Cargamos el dataset Modificado
 data_energy = pd.read_csv("data/data_energy_2.csv", index_col=None)
 
@@ -31,19 +41,6 @@ data_lat = data_energy[data_energy['iso_code'].isin(["COL", "BRA", "CHL", "MEX",
 data_des = data_energy[data_energy['iso_code'].isin(["NOR", "DEU", "ESP", "NLD", "FRA", "USA", "CHN",
                                                             "IND", "CAN", "JPN", "AUS"])]
 
-# %% [markdown]
-# ## Colombia
-# 
-
-# %% [markdown]
-# ¿De donde proviene la energia de colombia?
-
-# %%
-# mostramos las columnas que tiene el dataframe:
-#data_col.columns
-
-# %% [markdown]
-# Fuentes de energia en porcentaje por año
 
 # %%
 # selecciono solo la columna de year y las de share_elec
@@ -124,13 +121,23 @@ ax2.legend(loc="upper left", bbox_to_anchor=(0.01, 0.95), fontsize=12, frameon=F
 
 
 # Mostrar gráfico
+st.markdown("<h5 style='text-align: center;'>1. Gráfica ENSO hidroeléctrica</h5>", unsafe_allow_html=True)
+st.markdown("<h7 style='text-align: center;'>Es visible como en periodos donde hay menor cantidad de lluvias la generación hidroeléctrica disminuye y viceversa.</h7>", unsafe_allow_html=True)
+# Gráfico ENSO
 st.pyplot(plt)
-# ## Modelo predictivo
-# 
 
-# %%
-# mostramos las columnas que tiene el dataframe:
-#data_col.columns
+# Gráfica de barras apiladas latam
+st.markdown("<h5 style='text-align: center;'>2. Gráfica de barras apiladas LATAM</h5>", unsafe_allow_html=True)
+st.markdown("<h7 style='text-align: center;'>Se visualiza la distribución estádistica de paises latam y su comparación con Colombia.</h7>", unsafe_allow_html=True)
+genlatam = Image.open("media/genlatam.jpeg")
+st.image(genlatam, use_container_width=False, width=650, caption=" ")
+
+# Mapamundi
+st.markdown("<h5 style='text-align: center;'>2. Mapamundi de generación renovable</h5>", unsafe_allow_html=True)
+st.markdown("<h7 style='text-align: center;'>Se visualiza cuales son los paises que generan más energia de fuentes renovables a medida que el tono del color se oscurece</h7>", unsafe_allow_html=True)
+mundo = Image.open("media/mapamundi.jpeg")
+st.image(genlatam, use_container_width=False, width=650, caption=" ")
+
 
 # COMIENZA MODELO PREDICTIVO
 data_hidroCol = data_col[['year', 'population', 'hydro_electricity']]
