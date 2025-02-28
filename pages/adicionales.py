@@ -7,6 +7,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import matplotlib.ticker as ticker
+import streamlit as st
 
 # Cargamos el dataset Modificado
 data_energy = pd.read_csv("data/data_energy_2.csv", index_col=None)
